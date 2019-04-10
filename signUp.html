@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container{
+            width: 50vw;
+            margin: auto;
+        }
+        #submitButton{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="signUpForm">
+        <fieldset>
+            <h3>Sign-Up</h3><br>
+            <label class="searchLabel">Email</label>
+            <input type="email" id="signEmail" name="searchEmail"><br>
+            <label class="searchLabel">Username</label>
+            <input type="text" id="signUsername" name="signUsername"><br>
+            <label class="searchLabel">Password</label>
+            <input type="password" id="signPassword" name="signPassword"><br>
+        </fieldset>
+        <fieldset>
+            <h3>Current Position</h3><br>
+            <input type="radio" name="useFor" value="frontEndDev"> Front-end developer
+            <input type="radio" name="useFor" value="BackEndDev"> Back-end developer
+            <input type="radio" name="useFor" value="fullStackDev"> Full-stack developer
+            <input type="radio" name="useFor" value="mobileDev"> Mobile developer
+        </fieldset>
+        <fieldset>
+            <h3>Positions Interested In</h3><br>
+            <input type="checkbox" id="interestFront" name="interest" value="frontEnd">
+            <label for="interestFront">Front-end</label>
+            <input type="checkbox" id="interestBack" name="interest" value="backEnd">
+            <label for="interestBack">Back-end</label>
+            <input type="checkbox" id="interestFull" name="interest" value="fullStack">
+            <label for="interestFull">Full-Stack</label>
+            <input type="checkbox" id="interestMobile" name="interest" value="mobile">
+            <label for="interstMobile">Mobile</label>
+            <button type="submit" id="submitButton">Submit</button>
+        </fieldset>
+        <input type="hidden" value="user" id="accType">
+    </form>
+    </div>
+    <script>
+        document.querySelector("#submitButton").addEventListener('click', function (e) {
+            e.preventDefault();
+            var userInfo = {
+                email: signEmail.value,
+                username: signUsername.value,
+                password: signPassword.value,
+
+            }
+             fetch('https://jsonplaceholder.typicode.com/posts', {
+                 method: 'POST',
+                 body: JSON.stringify(userInfo)
+             })
+        })
+    </script>
+</body>
+</html>
