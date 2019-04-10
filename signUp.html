@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        /* BASIC STYLING */
         .container {
             width: 50vw;
             margin: auto;
@@ -21,7 +22,7 @@
 <body>
     <div class="container">
         <form id="signUpForm">
-            <fieldset>
+            <fieldset> <!--Input for basic sign up-->
                 <h3>Sign-Up</h3><br>
                 <label class="searchLabel">Email</label>
                 <input type="email" id="signEmail" name="searchEmail"><br>
@@ -30,14 +31,14 @@
                 <label class="searchLabel">Password</label>
                 <input type="password" id="signPassword" name="signPassword"><br>
             </fieldset>
-            <fieldset>
+            <fieldset><!--Input for current posiition-->
                 <h3>Current Position</h3><br>
                 <input type="radio" name="curPos" value="frontEndDev" class="radios"> Front-end developer
                 <input type="radio" name="curPos" value="BackEndDev" class="radios"> Back-end developer
                 <input type="radio" name="curPos" value="fullStackDev" class="radios"> Full-stack developer
                 <input type="radio" name="curPos" value="mobileDev" class="radios"> Mobile developer
             </fieldset>
-            <fieldset>
+            <fieldset><!--Input for the desired position-->
                 <h3>Positions Interested In</h3><br>
                 <input type="checkbox" id="interestFront" name="interest" value="frontEnd" class="checkboxes">
                 <label for="interestFront">Front-end</label>
@@ -49,13 +50,13 @@
                 <label for="interstMobile">Mobile</label>
                 <button type="submit" id="submitButton">Submit</button>
             </fieldset>
-            <input type="hidden" value="user" id="accType">
+            <input type="hidden" value="user" id="accType"> <!--Hidden input telling the server that the account is a user-->
         </form>
     </div>
     <script>
-        document.querySelector("#submitButton").addEventListener('click', function (e) {
-            e.preventDefault();
-            var userInfo = {
+        document.querySelector("#submitButton").addEventListener('click', function (e) { // Adding event listener to button
+            e.preventDefault(); // Preventing the form from refreshing the page
+            var userInfo = { // Creating an array of user inputs
                 email: signEmail.value,
                 username: signUsername.value,
                 password: signPassword.value,
@@ -63,16 +64,15 @@
                 posInterested: document.querySelector('.checkboxes:checked').value,
                 accountType: accType.value
             }
-            console.log(userInfo);
-            fetch('https://jsonplaceholder.typicode.com/posts', {
+            fetch('https://jsonplaceholder.typicode.com/posts', { // Placeholder server im sending the info to
                 method: 'POST',
-                body: JSON.stringify(userInfo),
+                body: JSON.stringify(userInfo), // Turning the array of user inputs into a valid JSON
                 headers: {
-                    "Content-type": "application/json; charset=UTF-8"
+                    "Content-type": "application/json; charset=UTF-8" // Letting the server know that I'm sending a JSON
                 }
             })
-                .then(userInfo => userInfo.json())
-                .then(userInfo => console.log(userInfo))
+                .then(userInfo => userInfo.json()) // Passing on the JSON
+                .then(userInfo => console.log(userInfo)) // Console logging the JSON
         })
     </script>
 </body>
