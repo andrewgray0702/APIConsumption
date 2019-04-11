@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* BASIC STYLING */
+        .container {
+            width: 50vw;
+            margin: auto;
+        }
+
+        #submitButton {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="signUpForm">
+            <fieldset> <!--Input for basic sign up-->
+                <h3>Sign-Up</h3><br>
+                <label class="searchLabel">Email</label>
+                <input type="email" id="signEmail" name="searchEmail"><br>
+                <label class="searchLabel">Username</label>
+                <input type="text" id="signUsername" name="signUsername"><br>
+                <label class="searchLabel">Password</label>
+                <input type="password" id="signPassword" name="signPassword"><br>
+            </fieldset>
+            <fieldset><!--Input for current posiition-->
+                <h3>Current Position</h3><br>
+                <input type="radio" name="curPos" value="frontEndDev" class="radios"> Front-end developer
+                <input type="radio" name="curPos" value="BackEndDev" class="radios"> Back-end developer
+                <input type="radio" name="curPos" value="fullStackDev" class="radios"> Full-stack developer
+                <input type="radio" name="curPos" value="mobileDev" class="radios"> Mobile developer
+            </fieldset>
+            <fieldset><!--Input for the desired position-->
+                <h3>Positions Interested In</h3><br>
+                <input type="checkbox" id="interestFront" name="interest" value="frontEnd" class="checkboxes">
+                <label for="interestFront">Front-end</label>
+                <input type="checkbox" id="interestBack" name="interest" value="backEnd" class="checkboxes">
+                <label for="interestBack">Back-end</label>
+                <input type="checkbox" id="interestFull" name="interest" value="fullStack" class="checkboxes">
+                <label for="interestFull">Full-Stack</label>
+                <input type="checkbox" id="interestMobile" name="interest" value="mobile" class="checkboxes">
+                <label for="interstMobile">Mobile</label>
+                <button type="submit" id="submitButton">Submit</button>
+            </fieldset>
+            <input type="hidden" value="user" id="accType"> <!--Hidden input telling the server that the account is a user-->
+        </form>
+    </div>
+    <script>
+        document.querySelector("#submitButton").addEventListener('click', function (e) { // Adding event listener to button
+            e.preventDefault(); // Preventing the form from refreshing the page
+            var userInfo = { // Creating an array of user inputs
+                email: signEmail.value,
+                username: signUsername.value,
+                password: signPassword.value,
+                curPosition: document.querySelector('.radios:checked').value,
+                posInterested: document.querySelector('.checkboxes:checked').value,
+                accountType: accType.value
+            }
+            fetch('https://jsonplaceholder.typicode.com/posts', { // Placeholder server im sending the info to
+                method: 'POST',
+                body: JSON.stringify(userInfo), // Turning the array of user inputs into a valid JSON
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8" // Letting the server know that I'm sending a JSON
+                }
+            })
+                .then(userInfo => userInfo.json()) // Passing on the JSON
+                .then(userInfo => console.log(userInfo)) // Console logging the JSON
+        })
+    </script>
+</body>
+
+</html>
