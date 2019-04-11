@@ -35,8 +35,8 @@ a:hover{
     top: 12px;
     right: 13px;
     text-align: center;
-    -webkit-transition-duration: 150ms;
-    transition-duration: 150ms;
+    -webkit-transition-duration: 125ms;
+    transition-duration: 125ms;
     transition-timing-function: linear;
 }
 
