@@ -1,3 +1,31 @@
 body{
-    background-color: rgb(225,225,225);
+    background-color: rgb(175,175,175);
+}
+
+header{
+    height: 60px;
+}
+
+#pageTitle{
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+
+#signUpBtn{
+    float: right;
+    background-color: rgb(0,175,0);
+    width: 10%;
+    height: 60px;
+}
+
+
+a{
+    color: rgb(0,0,0);
+    text-decoration: none;
+    text-align: center
+}
+
+section{
+    clear: left;
 }
