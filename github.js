@@ -15,7 +15,7 @@ document.querySelector('#submitButton').addEventListener("click", function (e) {
   json.forEach(function (val) {
   var jobPost = document.createElement("div"); jobPost.className = "jobPost";
   var companyName = document.createElement("h3");
-  var companyUrl = document.createElement("a");
+  var companyUrl = document.createElement("a"); 
   var description = document.createElement("div");
   var localPosition = document.createElement("div");
   description.innerText = val.position_title;
@@ -23,7 +23,7 @@ document.querySelector('#submitButton').addEventListener("click", function (e) {
   companyUrl.href = val.company_url;
   companyName.innerText = val.organization_name;
   jobPost.appendChild(companyName);
-  jobPost.appendChild(companyUrl);
+  h3.appendChild(companyUrl);
   jobPost.appendChild(description);
   jobPost.appendChild(localPosition);
   document.querySelector('#resultsArea').appendChild(jobPost); 
