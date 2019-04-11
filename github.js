@@ -23,7 +23,7 @@ document.querySelector('#submitButton').addEventListener("click", function (e) {
   companyUrl.href = val.company_url;
   companyName.innerText = val.organization_name;
   jobPost.appendChild(companyName);
-  h3.appendChild(companyUrl);
+  jobPost.appendChild(companyUrl);
   jobPost.appendChild(description);
   jobPost.appendChild(localPosition);
   document.querySelector('#resultsArea').appendChild(jobPost); 
