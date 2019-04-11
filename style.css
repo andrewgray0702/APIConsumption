@@ -1,26 +1,16 @@
 body{
-    background-color: rgb(175,175,175);
+    background-color: rgb(180,180,180);
 }
 
 header{
     height: 60px;
+    border-bottom: 2px solid rgb(0,175,0);
 }
 
 #pageTitle{
     float: left;
-    width: 30%;
+    width: 500px;
     margin-left: 10px;
-}
-
-#signUpBtn{
-    position: relative;
-    float: right;
-    background-color: rgb(0,175,0);
-    width: 90px;
-    height: 34px;
-    top: 15px;
-    right: 15px;
-    text-align: center;
 }
 
 
@@ -31,10 +21,31 @@ a{
 }
 
 a:hover{
-    color: rgb(0,0,0);
+    color: rgb(0,175,0);
     text-decoration: none;
 }
 
+#signUpBtn{
+    position: relative;
+    float: right;
+    background-color: rgb(0,175,0);
+    width: 86px;
+    height: 34px;
+    top: 12px;
+    right: 13px;
+    text-align: center;
+    -webkit-transition-duration: 190ms;
+    transition-duration: 190ms;
+}
+
+#signUpBtn:hover{
+    background-color: rgb(255,255,255);
+    
+}
+
 section{
+    position: relative;
     clear: left;
+    top: 5px;
+    left: 5px;
 }
