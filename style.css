@@ -9,21 +9,30 @@ header{
 #pageTitle{
     float: left;
     width: 30%;
-    text-align: center;
+    margin-left: 10px;
 }
 
 #signUpBtn{
+    position: relative;
     float: right;
     background-color: rgb(0,175,0);
-    width: 10%;
-    height: 60px;
+    width: 90px;
+    height: 34px;
+    top: 15px;
+    right: 15px;
+    text-align: center;
 }
 
 
 a{
     color: rgb(0,0,0);
     text-decoration: none;
-    text-align: center
+    font-size: 20px;
+}
+
+a:hover{
+    color: rgb(0,0,0);
+    text-decoration: none;
 }
 
 section{
