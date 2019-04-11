@@ -15,8 +15,8 @@ document.querySelector('#submitButton').addEventListener("click", function (e) {
   json.forEach(function (val) {
   var jobPost = document.createElement("div"); jobPost.className = "jobPost";
   var companyName = document.createElement("h3");
-  var companyUrl = document.createElement("a"); ++
-  +var description = document.createElement("div");
+  var companyUrl = document.createElement("a");
+  var description = document.createElement("div");
   var localPosition = document.createElement("div");
   description.innerText = val.position_title;
   localPosition.innerText = "Position: " + val.position_title+ " Location: " + val.locations;
