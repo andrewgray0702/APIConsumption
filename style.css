@@ -9,7 +9,8 @@ header{
 
 #pageTitle{
     float: left;
-    width: 500px;
+    width: 196px;
+    margin-top: 3px;
     margin-left: 10px;
 }
 
@@ -34,8 +35,9 @@ a:hover{
     top: 12px;
     right: 13px;
     text-align: center;
-    -webkit-transition-duration: 190ms;
-    transition-duration: 190ms;
+    -webkit-transition-duration: 150ms;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
 }
 
 #signUpBtn:hover{
